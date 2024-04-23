@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+// CRIO DIRETAMENTE A FUNCAO, AO INVES DE CRIAR ROTAS COMO NO REST
+service NoteService {
+    rpc List (Empty) returns (NoteList) {}
+}
+
+message Empty {}
+
+// OS NUMEROS DEFINEM A ORDEM DE RECEBIMENTO
+message Note {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+}
+
+message NoteList {
+    repeated Note notes = 1;
+}
